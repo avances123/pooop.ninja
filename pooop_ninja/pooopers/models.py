@@ -29,3 +29,6 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
     def get_short_name(self):
         # For this case we return email. Could also be User.first_name if you have this field
         return self.username
+
+    def total_poooped(self):
+        pass
