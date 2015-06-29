@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser ,PermissionsMixin,UserManager
-
+from django.db.models import Sum
+from datetime import timedelta
 
 class Poooper(AbstractBaseUser,PermissionsMixin):
 
@@ -31,4 +32,8 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
         return self.username
 
     def total_poooped(self):
-        pass
+        total  = timedelta()
+        for pooop in self.pooops.all():
+            print("%s,%s" % (pooop.end,pooop.start))
+            total += pooop.end - pooop.start
+        return str(total)
