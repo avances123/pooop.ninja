@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from pooop_ninja.pooopers.models import Poooper
-from pooop_ninja.pooopers.serializers import PoooperSerializer
+from pooopers.models import Poooper
+from pooopers.serializers import PoooperSerializer
 
 
 class PoooperViewSet(viewsets.ModelViewSet):

@@ -1,5 +1,5 @@
 from django.db import models
-from pooop_ninja.pooopers.models import Poooper
+from pooopers.models import Poooper
 
 class Pooop(models.Model):
     poooper = models.ForeignKey(Poooper, related_name='pooops', on_delete=models.CASCADE)

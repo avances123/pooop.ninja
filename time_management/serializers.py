@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from pooop_ninja.time_management.models import Pooop
+from time_management.models import Pooop
 
 
 class PooopSerializer(serializers.HyperlinkedModelSerializer):

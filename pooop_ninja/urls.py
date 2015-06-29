@@ -1,8 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework import routers
-from pooop_ninja.pooopers.views import PoooperViewSet
-from pooop_ninja.time_management.views import PooopViewSet
+from pooopers.views import PoooperViewSet
+from time_management.views import PooopViewSet
 
 router = routers.DefaultRouter()
 router.register(r'pooopers', PoooperViewSet)

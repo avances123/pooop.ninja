@@ -2,7 +2,7 @@
 
 from rest_framework import status
 from rest_framework.test import APITestCase
-from pooop_ninja.pooopers.models import Poooper
+from pooopers.models import Poooper
 from django.core.urlresolvers import reverse
 
 

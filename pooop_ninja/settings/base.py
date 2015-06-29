@@ -37,8 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pooop_ninja.pooopers',
-    'pooop_ninja.time_management',
+    'pooopers',
+    'time_management',
     'rest_framework',
 )
 
