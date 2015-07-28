@@ -4,7 +4,7 @@ from rest_framework import routers
 from pooopers.views import PoooperViewSet
 from time_management.views import PooopViewSet
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'pooopers', PoooperViewSet)
 router.register(r'pooops', PooopViewSet)
 

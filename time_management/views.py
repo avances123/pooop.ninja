@@ -6,6 +6,6 @@ from time_management.serializers import PooopSerializer
 
 
 class PooopViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = Pooop.objects.all()
     serializer_class = PooopSerializer
