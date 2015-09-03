@@ -15,3 +15,5 @@ ALLOWED_HOSTS = ['*']
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 SECRET_KEY = os.environ['SECRET_KEY']
+STATIC_ROOT = 'staticfiles'
+
