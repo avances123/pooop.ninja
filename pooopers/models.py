@@ -37,11 +37,10 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
         for pooop in self.pooops.all():
             if pooop.end:
                 total += pooop.end - pooop.start
-        return total
+        return total.total_seconds()
 
     def total_earned(self):
-        "Total money gained pooping"
-        total_poooped = self.total_poooped()
-        return self.salary * (total_poooped.total_seconds() / (30 * 3600))
+        "Total money earned pooping"
+        return self.salary * (self.total_poooped() / (30 * 3600))
 
 
