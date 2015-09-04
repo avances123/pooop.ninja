@@ -5,6 +5,6 @@ from pooopers.serializers import PoooperSerializer
 
 
 class PoooperViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = Poooper.objects.all()
     serializer_class = PoooperSerializer

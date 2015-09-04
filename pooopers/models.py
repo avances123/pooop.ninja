@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser ,PermissionsMixin,UserManager
 from datetime import timedelta
-from decimal import Decimal,getcontext
 
 
 class Poooper(AbstractBaseUser,PermissionsMixin):
@@ -13,7 +12,7 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
     is_admin                      = models.BooleanField(default=False)
     is_staff                      = models.BooleanField(default=False)
     objects                       = UserManager()
-    salary                        = models.DecimalField(max_digits=24, decimal_places=2,default=0)  # lo que gano en una hora
+    salary                        = models.IntegerField(blank=True,null=True)
     full_name                     = models.CharField(max_length=254,blank=True,null=True)
 
 
@@ -30,7 +29,6 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
         return self.full_name
 
     def get_short_name(self):
-        # For this case we return email. Could also be User.first_name if you have this field
         return self.username
 
     def total_poooped(self):
@@ -44,7 +42,6 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
     def total_earned(self):
         "Total money gained pooping"
         total_poooped = self.total_poooped()
-        result_float = float(self.salary) * (total_poooped.total_seconds() / 3600)
-        return Decimal.from_float(result_float).quantize(Decimal('1.00'))
+        return self.salary * (total_poooped.total_seconds() / (30 * 3600))
 
 
