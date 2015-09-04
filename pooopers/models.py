@@ -31,6 +31,9 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
     def get_short_name(self):
         return self.username
 
+    def total_pooops(self):
+        return self.pooops.count()
+
     def total_poooped(self):
         "Total seconds pooping"
         total  = timedelta()
