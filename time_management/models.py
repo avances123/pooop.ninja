@@ -2,7 +2,6 @@ from django.db import models
 from pooopers.models import Poooper
 from django.utils import timezone
 from django.db.models.signals import pre_save
-from django.dispatch import receiver
 
 
 
@@ -23,7 +22,7 @@ class Pooop(models.Model):
     def money(self):
         return self.duration() * self.poooper.salary_second()
 
-def clean_incompletes(sender,instance):
+def clean_incompletes(sender,instance,**kwargs):
     instance.poooper.pooops.filter(end__isnull=True).delete()
         
 pre_save.connect(clean_incompletes)
