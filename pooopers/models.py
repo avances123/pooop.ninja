@@ -36,11 +36,10 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
 
     def total_poooped(self):
         "Total seconds pooping"
-        total  = timedelta()
+        total = 0
         for pooop in self.pooops.all():
-            if pooop.end:
-                total += pooop.end - pooop.start
-        return total.total_seconds()
+            total += pooop.duration()
+        return total
 
     def salary_second(self):
         "Money earned by second"
