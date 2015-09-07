@@ -25,4 +25,4 @@ class Pooop(models.Model):
 def clean_incompletes(sender,instance,**kwargs):
     instance.poooper.pooops.filter(end__isnull=True).delete()
         
-pre_save.connect(clean_incompletes)
+pre_save.connect(clean_incompletes,sender=Pooop)
