@@ -1,11 +1,12 @@
 from django.db import models
 from pooopers.models import Poooper
-from datetime import datetime
+from django.utils import timezone
+
 
 
 class Pooop(models.Model):
     poooper = models.ForeignKey(Poooper, related_name='pooops', on_delete=models.CASCADE)
-    start = models.DateTimeField(default=datetime.now)
+    start = models.DateTimeField(default=timezone.now)
     end = models.DateTimeField(blank=True,null=True)
 
     class Meta:
@@ -13,8 +14,8 @@ class Pooop(models.Model):
 
 
     def duration(self):
-        end = self.end or datetime.now()
-        dur = end -self.start
+        end = self.end or timezone.now()
+        dur = end - self.start
         return dur.total_seconds()
         
     def money(self):
