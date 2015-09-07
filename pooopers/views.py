@@ -13,7 +13,7 @@ class PoooperViewSet(viewsets.ModelViewSet):
     queryset = Poooper.objects.all()
     serializer_class = PoooperSerializer
 
-    @detail_route(methods=['post','get'],url_path='reset')
+    @detail_route(methods=['post','get'],url_path='reset')  # Solo POST
     def reset(self,request,pk=None):
         user = self.get_object()
         user.pooops.all().delete()

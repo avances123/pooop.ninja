@@ -13,7 +13,10 @@ class Pooop(models.Model):
 
 
     def duration(self):
-        if self.end:
-            return self.end - self.start
-        else:
-            return datetime.now() - self.start
+        end = self.end or datetime.now()
+        dur = end -self.start
+        return dur.total_seconds()
+        
+    def money(self):
+        return self.duration() * self.poooper.salary_second()
+        

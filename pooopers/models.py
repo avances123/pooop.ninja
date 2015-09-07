@@ -42,8 +42,12 @@ class Poooper(AbstractBaseUser,PermissionsMixin):
                 total += pooop.end - pooop.start
         return total.total_seconds()
 
+    def salary_second(self):
+        "Money earned by second"
+        return self.salary / (30 * 24 *3600)
+
     def total_earned(self):
         "Total money earned pooping"
-        return self.salary * (self.total_poooped() / (30 * 3600))
+        return self.total_poooped() * self.salary_second()
 
 
