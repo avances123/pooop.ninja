@@ -23,7 +23,7 @@ class Pooop(models.Model):
     def money(self):
         return self.duration() * self.poooper.salary_second()
 
-@receiver(pre_save)
 def clean_incompletes(sender,instance):
     instance.poooper.pooops.filter(end__isnull=True).delete()
         
+pre_save.connect(clean_incompletes)
